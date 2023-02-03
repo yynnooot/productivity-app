@@ -1,0 +1,46 @@
+.index-cards {
+	margin: 2rem 0 0 1.5rem;
+	width: 50rem;
+	overflow: hidden;
+}
+
+.window {
+	white-space: nowrap;
+}
+
+.header {
+	font-size: 2rem;
+}
+
+.arrows {
+	display: flex;
+	width: 16rem;
+	justify-content: space-between;
+}
+
+.prev {
+	display: flex;
+}
+
+.next {
+	display: flex;
+}
+
+.arrow-prev {
+	border: solid lightseagreen;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+	-moz-transform: rotate(135deg);
+}
+
+.arrow-next {
+	border: solid lightseagreen;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+}

@@ -1,0 +1,17 @@
+.todo-list {
+	margin: 2rem 1.5rem;
+}
+
+.header {
+	font-size: 2rem;
+}
+
+.input-row {
+	display: flex;
+}
+
+.input-add-button {
+	background-color: lightblue;
+}
+
+.todo-list {}

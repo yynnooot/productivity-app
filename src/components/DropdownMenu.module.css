@@ -1,0 +1,9 @@
+.menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+}
+
+.item:hover {
+	background-color: grey;
+}
