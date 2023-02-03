@@ -1,40 +1,12 @@
-import { useReducer, useState, useEffect } from 'react'
-import IndexCard from './IndexCard'
+import { useState } from 'react'
+import useLocalStorage from '../hooks/useLocalStorage'
+import FlashCard from './FlashCard'
 import TextEditor from './TextEditor'
 import Modal from './Modal'
-import styles from './IndexCards.module.css'
+import styles from './FlashCards.module.css'
 
-const reducer = (state, action) => {
-	switch (action.type) {
-		case 'add':
-			console.log("SHOULD BE CREATING:", action.payload)
-			return [...state, action.payload]
-		case 'remove':
-			return state
-		default:
-			return state
-	}
-}
-
-const initialState = [
-	{
-		id: '1',
-		front: 'front of card 1',
-		back: 'back of card 1'
-	},
-	{
-		id: '2',
-		front: 'front of card 2',
-		back: 'back of card 2'
-	},
-	{
-		id: '3',
-		front: 'front of card 3',
-		back: 'back of 3'
-	}
-]
-const IndexCards = () => {
-	const [cards, dispatch] = useReducer(reducer, initialState)
+const FlashCards = () => {
+	const [cards, setCards] = useLocalStorage('flash-cards', [])
 	const [activeIndex, setActiveIndex] = useState(0)
 	const [isModal, setIsModal] = useState(false)
 	const handlePrev = () => {
@@ -45,19 +17,16 @@ const IndexCards = () => {
 		setActiveIndex(activeIndex === cards.length - 1 ? 0 : activeIndex + 1)
 	}
 	const handleCreateCard = (front, back) => {
-		const todo = {
+		const card = {
 			id: Date.now(),
 			front,
 			back
 		}
-		dispatch({
-			type: 'add',
-			payload: todo
-		})
+		const newCards = [...cards, card]
+		setCards(newCards)
 		setIsModal(false)
 	}
 	const handleOpenEditorModal = () => {
-		console.log('OPEN MODAL')
 		setIsModal(true)
 	}
 
@@ -66,15 +35,17 @@ const IndexCards = () => {
 	}
 
 	return (
-		<div className={styles['index-cards']}>
-			<div className={styles['header']}>Index Cards</div>
-			<div className={styles['create-button']} onClick={handleOpenEditorModal}>Create New Card</div>
+		<div className={styles['flash-cards']}>
+			<div className={styles['header']}>
+				<div>Flash Cards</div>
+				<div onClick={handleOpenEditorModal} className={styles['add-button']}></div>
+			</div>
+			{/* <div className={styles['create-button']} onClick={handleOpenEditorModal}>Create New Card</div> */}
 			<div className={styles['arrows']}>
 				<div className={styles['prev']} onClick={handlePrev}>
 					<i className={styles['arrow-prev']}></i>
 					<div>PREVIOUS</div>
 				</div>
-				{/* <div className={styles['arrow-next']} onClick={handleNext}>NEXT</div> */}
 				<div className={styles['next']} onClick={handleNext}>
 					<div>NEXT</div>
 					<div className={styles['arrow-next']}></div>
@@ -86,7 +57,7 @@ const IndexCards = () => {
 			>
 				{cards.map(card => {
 					return (
-						<IndexCard
+						<FlashCard
 							key={card.id}
 							id={card.id}
 							front={card.front}
@@ -106,4 +77,4 @@ const IndexCards = () => {
 	)
 }
 
-export default IndexCards
+export default FlashCards

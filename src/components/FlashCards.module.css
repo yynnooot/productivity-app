@@ -1,4 +1,4 @@
-.index-cards {
+.flash-cards {
 	margin: 2rem 0 0 1.5rem;
 	width: 50rem;
 	overflow: hidden;
@@ -10,12 +10,18 @@
 
 .header {
 	font-size: 2rem;
+	display: flex;
+}
+
+.add-button {
+	background: url(../assets/plus-icon.png)no-repeat;
 }
 
 .arrows {
 	display: flex;
 	width: 16rem;
 	justify-content: space-between;
+	margin: 0 auto;
 }
 
 .prev {

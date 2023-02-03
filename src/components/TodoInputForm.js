@@ -12,13 +12,10 @@ const TodoInputForm = ({ onAdd }) => {
 	}
 
 	const handleEnter = (e) => {
-		console.log('e.key', e.keyCode)
 		if (e.key === 'Enter') {
-
 			handleAdd()
 		}
 	}
-
 
 	return (
 		<div className={styles['input-form']}>

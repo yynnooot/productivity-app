@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import styles from './IndexCard.module.css'
+import styles from './FlashCard.module.css'
 
 // should have frontback button for now
-const IndexCard = ({ id, front, back }) => {
+const FlashCard = ({ id, front, back }) => {
 	const [isFlipped, setIsFlipped] = useState(false)
 	const handleFlip = () => {
 		setIsFlipped(!isFlipped)
 	}
 	return (
-		<div className={styles['index-card']} onClick={handleFlip}>
+		<div className={styles['flash-card']} onClick={handleFlip}>
 			{isFlipped ? back : front}
 		</div>
 	);
 }
 
-export default IndexCard;
+export default FlashCard;

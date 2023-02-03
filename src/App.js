@@ -4,7 +4,7 @@ import Nav from './components/Nav';
 import Quotes from './components/Quotes';
 import MotivationalQuotes from './components/MotivationalQuotes';
 import TodoList from './components/TodoList'
-import IndexCards from './components/IndexCards'
+import FlashCards from './components/FlashCards'
 
 function App() {
 	return (
@@ -13,7 +13,7 @@ function App() {
 			{/* <Quotes /> */}
 			{/* <MotivationalQuotes /> */}
 			<TodoList />
-			<IndexCards />
+			<FlashCards />
 		</div>
 	);
 }

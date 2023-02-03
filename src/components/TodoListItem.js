@@ -12,7 +12,7 @@ const TodoListItem = (props) => {
 
 	const handleEditOnBlur = () => {
 		if (props.text !== todoText) {
-			props.onEdit(todoText)
+			props.onEdit(props.id, todoText)
 		}
 		setIsEditing(false)
 	}
